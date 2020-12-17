@@ -23,7 +23,7 @@ public class HelloServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//A print writer created from the response will write to that response object. We can use this to write HTML directly
 		PrintWriter pw = res.getWriter();
-		pw.print("<h1>Hello from your doGet method</h1>");
+		pw.print("<h1>Hello from your doGet method from Jenkins! Pipelines are AWESOME!</h1>");
 		res.setStatus(202);
 	}
 	
