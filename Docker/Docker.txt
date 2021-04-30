@@ -1,0 +1,44 @@
+Docker:
+
+Would be a good idea to get Docker Desktop
+Docker is Linix based
+
+1. Make sure Docker is installed and Daemon is running
+2. Open a Git Bash window into HelloServlets folder
+3. In Git Bash window, Enter:
+	1. mvn package //note HelloServlets was packaged as a war file
+		//This command puts war file in the target folder of HelloServlets
+		//mvn clean would remove this target folder
+	2. cd target/    //go into the target folder
+	3. docker pull tomcat:jdk8-openjdk //docker image for Tomcat, copied from DockerHub
+	4. touch Dockerfile //creates a Dockerfile in the target folder
+	5. vim Dockerfile // opens the Dockerfile using vim
+	6. Press insert on keyboard
+	7. Type in window:
+		FROM tomcat:jdk8-openjdk
+		RUN rm -rf /usr/local/tomcat/webapps/* //as the container is being created, it will run this command
+			//this will wipe out everthing in Tomcat's webapps folder (inside the container)
+		COPY HelloServlets-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/HelloServlets.war
+			//The war file after the copy keyword was created afer maven packaged HelloServlets
+			//When we copy, we get to rename
+			//Thus, this will put the renamed war file in the webapps folder in the container
+		CMD ["catalina.sh", "run"] //starts Tomcat
+		:wq //to save and exit vim
+			//w to write to the file and q to quit
+			//:q! will quit without saving
+	8. docker build -t hellodocker .     //tag the image as hellodocker
+	9. docker image ls // to see what is in it
+	10. docker run -d -p 8099:8080 hellodocker 
+		//runs or "spins up" the container in the background and does port binding
+		//8099 will be the host port and 8080 is Tomcat's default port
+	11. Check Docker Desktop to verify that it is running
+	12. Now, type localhost:8099/HelloServlets/hello into your browser
+		//"Hello from your doGet method" is displayed like it should be
+		//So HelloServlets successfully runs in the Docker container
+	13. docker stop vibrant_maxwell //to stop the container
+		//note that we didn't name it, so this is the name it came up with
+	14. docker start vibrant_maxwell  // to start the app in a container that already exists and has been stopped but not deleted
+	15. docker run -d -p 8098:8080 hellodocker //creates a duplicate app
+		//note 8098 is my computer's port and 8080 Tomcat's port in the container 
+		//So any traffic that goes to 8098 on my computer, will be forwarded to 8080 in the container
+		//Thus, localhost:8099/HelloServlets/hello and localhost:8098/HelloServlets/hello will display the same thing in the browser

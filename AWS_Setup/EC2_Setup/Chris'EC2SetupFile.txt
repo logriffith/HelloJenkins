@@ -1,0 +1,122 @@
+Revature
+My Feed
+Life at Revature
+My Schedule
+GROUPS
+201130-Reston-Java
+Search Users, Groups, Feeds, etc...
+
+Conversation Details
+Follow
+
+christopher.yun has posted in 201130-Reston-Java.
+
+Dec 21 2020, 11:12 AM
+Setting up EC2 for project 1
+Attached is a scripting file. Make sure you don't run it from your local machine. It *might work on EC2 if you transfer the file and run it there, but I don't recommend it as I haven't tested that yet. The point of the file is to help anyone looking to set up project 1 (and maybe project 2) on an EC2 instance. You can follow the commands listed instead and copy paste them one by one. I will probably edit the file and make a new post when I have everything working.
+
+ATTACHMENTS
+
+ec2setup.sh
+1.7 KB
+Turn Off Notification
+Bookmark
+Copy Post URL
+Attachments : 1 [Download file]
+Feed Statistics
+0 Likes
+0 Comments
+28 Views
+Participants(1)
+
+Post Moderation ()
+Join Requests
+There are no posts awaiting moderation.
+Notebook
+Notifications
+All
+ 
+
+Jennifer Heermance published the manual to null.
+ Feb 19, 12:20 PM
+
+Julie Seals published the manual to null.
+ Feb 19, 11:09 AM
+
+Kyle Taylor has made an announcement in Life at Revature.
+‘Inspiration Series’ Interview with Bob Gasser
+
+ Feb 09, 01:54 PM
+#!/bin/bash
+
+##################################################
+# ec2setup.sh
+# works for Amazon Linux 2
+# this is for setting up ec2 with java, maven, git, docker, jenkins
+
+# Written by Chris Yun
+# source: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html
+# source: Tim's 12/16/2020 second video
+##################################################
+
+# update system
+sudo yum update -y
+
+##################################################
+
+# set up java
+sudo yum install java-1.8.0-openjdk-devel -y
+
+##################################################
+
+# set up maven
+sudo yum install maven -y
+
+##################################################
+
+# set up git
+sudo yum install git -y
+
+##################################################
+
+# skipped tomcat
+
+##################################################
+
+# docker engine package
+sudo amazon-linux-extras install docker -y
+
+# Start Docker
+sudo service docker start
+
+# Add ec2-user to docker group to avoid using sudo
+sudo usermod -a -G docker ec2-user
+
+# need to logout of ec2 session then relog in.
+# if your Host name is different, you need to change line 29
+exit
+ssh javafsec2
+
+# this command should be able to run without sudo
+docker info
+
+##################################################
+
+# commands for jenkins setup
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+
+sudo yum install -y jenkins
+
+sudo service jenkins start
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0
+
+export JENKINS_HOME=/var/lib/jenkins
+
+# jenkins password
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+ec2setup.sh
+close
+Here is your Smart Chat (Ctrl+Space)

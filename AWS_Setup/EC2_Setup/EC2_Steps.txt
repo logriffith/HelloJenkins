@@ -1,0 +1,124 @@
+Create New EC2:
+1. Log into your AWS account. 
+2. Under services, select EC2.
+3. Click on running instances
+4. Click on Launch Instances
+5. Choose an Amazon Machine Image (AMI) //essentially choosing the OS for the EC2
+	-Select Amazon Linux 2 AMI (HVM), SSD Volume Type (64 bit)
+6. Choose an Instance Type
+	-Choose t2.micro, which is Free Tier and has 1 GiB of memory (essentially the EC2 RAM)
+7. Configure Instance Details
+	-Make sure the number of instances is 1
+	-Everything else is fine
+8. Add Storage (EC2 hard drive)
+	-Default is 8 GiB and General Purpose SSN
+	-Make sure Delete on Termination is checked (storage will be deleted with the EC2)
+	-Everything else is fine
+9. Add Tag
+	-Add Key JavaFS201130 with value DeleteBy2-10-21
+10. Configure Security Group
+	-Select an existing security group (the one when we made the RDS)
+11. Review
+12. Launch
+	-Create a new key pair
+	-name: javaFS201130kp //allows us to access our EC2 using a secure shell
+	-Download Key Pair (.pem file)
+	-Launch Instance
+
+Setup in CLI/Git Bash:
+1. Open Git Bash on the desktop
+2. Get into the home directory by entering cd, which is the ~
+3. ls -a 
+	- look for .ssh. If you don't have it, it will need to be created
+	- .ssh is the communication channel that we will use to access the command line in our EC2
+	- stands for secure shell
+	- to create it, enter mkdir .ssh in Git Bash
+4. cd .ssh
+5. mkdir keys
+6. cd keys
+7. ls 
+8. mv FilePath/javaFS201130kp.pem javaFS201130.pem
+	-moves it to the same folder that you are already in, but renames it
+9. cd ..
+10. touch config
+11. vi config
+12. press i on keyboard to write to the file
+13. Type 
+	Host MyEC2
+		HostName EC2_location_on_internet (note you can use either the Public IPv4 address or the Public IPv4 DNS)
+		IdentityFile ~/.ssh/keys/javaFS201130.pem
+		User ec2-user
+14. Press the escape key on the keyboard to take you out of insert mode
+15. :wq
+16. cat config
+	-displays in the console the contents of the config file, including what you just wrote in it using vim 
+17. ssh MyEC2
+18. Type yes
+	- you are now in your EC2
+	- you can now change directories inside your EC2
+19. Type exit to exit the EC2
+20. There is now a known_hosts file in the .ssh directory, which essentially makes it so you don't have to type yes again next time you get into your EC2
+
+Note that if the EC2 has updates available, you can type sudo yum update -y to update all
+	-y means you say yes to everything
+	yum is a package manager
+
+Put Java 8, Maven, Git, Tomcat 8.5 on the EC2:
+Inside the EC2, type
+1. sudo yum install java-1.8.0-openjdk-devel -y
+2. sudo yum install maven -y
+3. sudo yum install git -y
+4. sudo amazon-linux-extras install tomcat8.5 -y
+
+Unfortunately, neither yum nor Amazon Linux Extras has Tomcat 9
+We also have a problem in that Tomcat's default port is 8080, and Jenkins' default port is also 8080
+
+Change Tomcat's Port on the EC2 to 8085:
+Inside the EC2, type
+1. sudo sed -i 's/<Connector port=\"8080\"/<Connector port=\"8085\"/' /etc/tomcat/server.xml
+2. To check that it worked, type 
+	sudo service tomcat start
+	sudo netstat -tulpn
+3. You will then be able to see that port 8085 is active
+4. Now, get of tomcat, type
+	sudo service tomcat stop
+
+Get Jenkins on EC2:
+1. sudo service tomcat start
+2. sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+	-this will grab Jenkins
+3. sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+	-we need a key to access Jenkins correctly
+	-this will import Jenkins into yum
+4. sudo yum install -y jenkins
+	-use yum install Jenkins
+
+Setup Jenkins Environment Variables on EC2:
+1. sudo service jenkins start
+2. export JENKINS_HOME=/var/lib/jenkins
+3. export JAVA_HOME=/usr/lib/jvm/java-1.8.0
+
+Setup Permissions Group So Jenkins and Tomcat can Talk to Each Other:
+1. sudo groupadd jenkins-tomcat
+2. sudo usermod -aG jenkins-tomcat jenkins
+3. sudo usermod -aG jenkins-tomcat tomcat
+4. sudo chgrp jenkins-tomcat /var/lib/tomcat/webapps
+	-Give group control over Tomcat's webapps folder so that Jenkins can put our application where Tomcat will host it
+5. sudo service tomcat restart
+6. sudo service jenkins restart
+
+Now, in your web browser enter either the EC2's Public IPv4 address or Public IPv4 DNS, followed by :8080. Recall that 8080 is Jenkins default port and Tomcat is now on port 8085.
+You be given a screen that says to unlock Jenkins
+
+Now, Enter
+1. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+	It will print the initial password to the console
+2. Copy this password
+3. Paste this password in you browser in the input field Administrator Password
+4. Click Continue
+5. Save this password in your browser if you wish
+6. Install suggested plugins
+
+
+To Stop Jenkins on EC2:
+sudo service jenkins stop

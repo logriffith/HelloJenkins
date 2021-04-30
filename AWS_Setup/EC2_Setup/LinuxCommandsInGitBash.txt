@@ -1,0 +1,274 @@
+logri@LAPTOP-8CFF50VA MINGW64 ~/OneDrive/Desktop
+$ cd
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ pwd
+/c/Users/logri
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ cd Desktop/
+bash: cd: Desktop/: No such file or directory
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ cd ..
+
+logri@LAPTOP-8CFF50VA MINGW64 /c/Users
+$ cd ..
+
+logri@LAPTOP-8CFF50VA MINGW64 /c
+$ cd
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ pwd
+/c/Users/logri
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ ls
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Documents/
+ Downloads/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ Music/
+'My Documents'@
+ NTUSER.DAT
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TM.blf
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000002.regtrans-ms
+ NetHood@
+ OneDrive/
+ Postman/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Videos/
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ ntuser.ini
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ ls -la
+total 4178
+drwxr-xr-x 1 logri 197609       0 Dec 16 10:46  ./
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:18  ../
+-rw-r--r-- 1 logri 197609    3384 Dec 16 13:03  .bash_history
+drwxr-xr-x 1 logri 197609       0 Dec 12 14:57  .config/
+drwxr-xr-x 1 logri 197609       0 Dec  9 19:38  .eclipse/
+-rw-r--r-- 1 logri 197609      60 Dec 12 22:49  .gitconfig
+drwxr-xr-x 1 logri 197609       0 Dec  8 13:21  .lemminx/
+drwxr-xr-x 1 logri 197609       0 Dec  8 13:19  .m2/
+drwxr-xr-x 1 logri 197609       0 Dec 16 10:46  .sonarlint/
+drwxr-xr-x 1 logri 197609       0 Dec  8 13:44  .sts4/
+drwxr-xr-x 1 logri 197609       0 Dec  8 09:54  .tooling/
+-rw-r--r-- 1 logri 197609    1131 Dec  1 16:35  .viminfo
+drwxr-xr-x 1 logri 197609       0 Nov 29 01:12  .vscode/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:08 '3D Objects'/
+drwxr-xr-x 1 logri 197609       0 Nov 24 17:20  AppData/
+lrwxrwxrwx 1 logri 197609      30 Nov 24 17:20 'Application Data' -> /c/Users/logri/AppData/Roaming/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:08  Contacts/
+lrwxrwxrwx 1 logri 197609      58 Nov 24 17:20  Cookies -> /c/Users/logri/AppData/Local/Microsoft/Windows/INetCookies/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:10  Documents/
+drwxr-xr-x 1 logri 197609       0 Dec 16 13:34  Downloads/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:08  Favorites/
+drwxr-xr-x 1 logri 197609       0 Dec 16 07:56  IntelGraphicsProfiles/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:08  Links/
+lrwxrwxrwx 1 logri 197609      28 Nov 24 17:20 'Local Settings' -> /c/Users/logri/AppData/Local/
+drwxr-xr-x 1 logri 197609       0 Nov 29 19:29  Music/
+lrwxrwxrwx 1 logri 197609      24 Nov 24 17:20 'My Documents' -> /c/Users/logri/Documents/
+-rw-r--r-- 1 logri 197609 2621440 Dec 15 15:33  NTUSER.DAT
+-rw-r--r-- 1 logri 197609   65536 Nov 24 17:20  NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TM.blf
+-rw-r--r-- 1 logri 197609  524288 Nov 24 17:20  NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000001.regtrans-ms
+-rw-r--r-- 1 logri 197609  524288 Nov 24 17:20  NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000002.regtrans-ms
+lrwxrwxrwx 1 logri 197609      66 Nov 24 17:20  NetHood -> '/c/Users/logri/AppData/Roaming/Microsoft/Windows/Network Shortcuts'/
+drwxr-xr-x 1 logri 197609       0 Dec 11 13:30  OneDrive/
+drwxr-xr-x 1 logri 197609       0 Nov 29 00:52  Postman/
+lrwxrwxrwx 1 logri 197609      66 Nov 24 17:20  PrintHood -> '/c/Users/logri/AppData/Roaming/Microsoft/Windows/Printer Shortcuts'/
+lrwxrwxrwx 1 logri 197609      55 Nov 24 17:20  Recent -> /c/Users/logri/AppData/Roaming/Microsoft/Windows/Recent/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:08 'Saved Games'/
+drwxr-xr-x 1 logri 197609       0 Nov 24 18:09  Searches/
+lrwxrwxrwx 1 logri 197609      55 Nov 24 17:20  SendTo -> /c/Users/logri/AppData/Roaming/Microsoft/Windows/SendTo/
+lrwxrwxrwx 1 logri 197609      59 Nov 24 17:20 'Start Menu' -> '/c/Users/logri/AppData/Roaming/Microsoft/Windows/Start Menu'/
+lrwxrwxrwx 1 logri 197609      58 Nov 24 17:20  Templates -> /c/Users/logri/AppData/Roaming/Microsoft/Windows/Templates/
+drwxr-xr-x 1 logri 197609       0 Nov 30 07:50  Videos/
+-rw-r--r-- 1 logri 197609   16384 Nov 24 17:20  ntuser.dat.LOG1
+-rw-r--r-- 1 logri 197609  458752 Nov 24 17:20  ntuser.dat.LOG2
+-rw-r--r-- 1 logri 197609      20 Nov 24 17:20  ntuser.ini
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ cat Hello.java
+cat: Hello.java: No such file or directory
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ cd
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ ls -a
+ ./
+ ../
+ .bash_history
+ .config/
+ .eclipse/
+ .gitconfig
+ .lemminx/
+ .m2/
+ .sonarlint/
+ .sts4/
+ .tooling/
+ .viminfo
+ .vscode/
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Documents/
+ Downloads/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ Music/
+'My Documents'@
+ NTUSER.DAT
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TM.blf
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000002.regtrans-ms
+ NetHood@
+ OneDrive/
+ Postman/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Videos/
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ ntuser.ini
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ mkdir .ssh
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ ls -a
+ ./
+ ../
+ .bash_history
+ .config/
+ .eclipse/
+ .gitconfig
+ .lemminx/
+ .m2/
+ .sonarlint/
+ .ssh/
+ .sts4/
+ .tooling/
+ .viminfo
+ .vscode/
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Documents/
+ Downloads/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ Music/
+'My Documents'@
+ NTUSER.DAT
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TM.blf
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{978bcda7-fe7d-11ea-a6b8-046c591723bf}.TMContainer00000000000000000002.regtrans-ms
+ NetHood@
+ OneDrive/
+ Postman/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Videos/
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ ntuser.ini
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ cd .ssh
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ mkdir keys
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ cd keys/
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh/keys
+$ ls
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh/keys
+$ mv C:/Users/logri/Downloads/javaFS201130kp.pem javaFS201130.pem
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh/keys
+$ cd ..
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ cd keys
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh/keys
+$ cd
+
+logri@LAPTOP-8CFF50VA MINGW64 ~
+$ cd .ssh
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ touch config
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ vi config
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ cat config
+Host javafsec2
+        HostName ec2-3-134-99-224.us-east-2.compute.amazonaws.com
+        IdentityFile ~/.ssh/keys/javaFS201130.pem
+        User ec2-user
+
+logri@LAPTOP-8CFF50VA MINGW64 ~/.ssh
+$ ssh javafsec2
+The authenticity of host 'ec2-3-134-99-224.us-east-2.compute.amazonaws.com (3.134.99.224)' can't be established.
+ECDSA key fingerprint is SHA256:GYT/fWNakk9iHu5RV4vGEXgjpEBDSx0rrMwbe0atc8E.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-3-134-99-224.us-east-2.compute.amazonaws.com,3.134.99.224' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+7 package(s) needed for security, out of 19 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-39-76 ~]$ cd ..
+[ec2-user@ip-172-31-39-76 home]$ cd ..
+[ec2-user@ip-172-31-39-76 /]$ cd
+[ec2-user@ip-172-31-39-76 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-172-31-39-76 ~]$ exit
+logout
+Connection to ec2-3-134-99-224.us-east-2.compute.amazonaws.com closed.
+

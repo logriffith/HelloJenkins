@@ -1,0 +1,58 @@
+AWS RDS Setup (Free Tier):
+1. Get on AWS and create an account if you don't have one already.
+2. After logging in, click on DB instances link
+3. Click on Create Instance.
+4. Make sure Standard Create is selected
+5. Select engine (we did Postgres and the default version is fine)
+6. For templates, choose Free Tier
+5. Give database a name (DB instance identifier)
+6. Set up DB credentials (username and password)
+7. db.t2.micro should be selected for the DB instance size
+8. For storage:
+	-Select General Purpose (SSD)
+	-20 GiB
+	-Deselect Enable storage autoscaling
+9. For Connectivity:
+	-Select public access
+	-Create a new VPC security group if you don't already have one and name it
+	-No preference on Availability Zones
+	-Default port is fine: 5432
+10. Database authentication, choose password authenticated
+11. In additional configuration, create an initial database name
+12. Turn off automatic backups
+13. Deselect enable performance insights
+14. No monitoring and no logging
+15. Default is fine for everything else
+16. Click Create Database
+
+Security Group Setup:
+1. In your RDS instance, click on your security group
+2. Click on the security group id
+3. Click on edit inbound rules
+4. Click on add rule
+5. Select all traffic (whatever you want to do with AWS, this will allow you to do it)
+6. Select my IP
+7. Provide a description if you want
+8. Click save
+9. If you move or your IP address changes, you will need to change your security group rule
+
+Connecting to RDS in DBeaver:
+1. In the Database Navigator, right-click, hover over Create, and click Connection
+2. Select Postgres
+3. Host name is the RDS endpoint (found in the DB instance on AWS site)
+4. For the database name, use the initial database name you used when you created your DB instance
+5. Enter the DB instance username and password
+6. Click Test Connection.
+7. If the connection is successful, click Finish
+8. From here, you can create another database with the same DB instance using a create database command in a SQL script
+
+Steps to Delete RDS Before Free Tier is Over:
+1. Under your DB instance on AWS, click the Actions drop down menu
+2. Select Delete
+3. Deselect creating a final snapshot
+4. Select the acknowlege box too
+
+Delete Database in DB Instance in DBeaver:
+1. Delete connection
+2. Run the SQL query DROP DATABSE DatabaseName;
+3. Make sure your DB Instance name is displayed in the SQL Editor when you do so

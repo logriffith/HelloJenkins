@@ -1,0 +1,26 @@
+Linux Notes:
+
+Common Linux Commands:
+1. pwd tells you where the home directory is i.e file path
+2. cd - will change the directory that you are currently in
+	cd by itself will move you to the home directory ~
+	cd .. will move you up a single directory
+3. ls lists the contents of the directory
+4. -l gives the "long" information about each file/directory
+5. -a shows "all" including hidden directories
+6. cat concatenates to the console generally, so will print the contents of a file to the console
+7. mv moves files and can rename files 
+	ex: "mv file.txt /home/username/documents" will move a file called "file" from the current directory to the directory specified i.e. documents
+	ex: "mv OldFileName.txt NewFileName.txt" will rename the file but not move it
+8. mkdir makes a new directory/folder
+9. rmdir removes a directory
+10. rm is the remove command
+	this can be dangerous if you don't give it a specific file to remove like remove everything on your computer!
+11. touch creates an empty file
+12. grep is used to search through the contents of a file
+13. sudo is "SuperUser DO", which gives temporary permissions of the superuser to the command
+14. chmod changes the permissions on a file or a directory/folder
+	-Linux permissions are read(4), write(2), and execute(1). The numbers combine to represent the total permissions a user or group has. 7 therefore is full permissions and 0 is no permissions.
+	-Permissions are set for the owner, the group, and others. 
+		-This will look like 764 if the owner has all permissions, the group has read/write and others only have read. 
+	
