@@ -1,7 +1,7 @@
 # HelloJenkins
 
 ## Summary
-This repository is an introduction to using Jenkins to push a repository onto an AWS EC2. There are also notes and images for setting up an AWS EC2, an AWS RDS, and Jenkins on an EC2. Docker notes can be found in this repository as well. A webhook is needed to 
+This repository is an introduction to using Jenkins to push a repository onto an AWS EC2. There are also notes and images for setting up an AWS EC2, an AWS RDS, and Jenkins on an EC2. Docker notes can be found in this repository as well. A webhook is needed to alert Jenkins that code was merged to the repository.
 ## Steps
 1. Login on AWS website (i.e. sign into console). You can [click here](https://aws.amazon.com/) to get onto the AWS website.
 2. Setup an AWS EC2 if you don't have one already
