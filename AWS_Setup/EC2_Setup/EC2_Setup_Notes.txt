@@ -122,3 +122,29 @@ Now, Enter
 
 To Stop Jenkins on EC2:
 sudo service jenkins stop
+
+Note that your Jenkins username is admin and your password is what is outputted when you execute sudo cat /var/lib/jenkins/secrets/initialAdminPassword unless you change it.
+
+In your application, if you are calling to get environment variables such as the password to your RDS, you will need to set your environment variables in your EC2.
+If you are putting your application inside a Docker container on an EC2, you will need to set your environment variables inside the container.
+
+Make Sure You Have the Following Jenkins Plugins:
+- Git
+- GitHub
+- Maven Integration
+
+Build Commands in FirstPipeline:
+mvn clean package  //deletes target folder if it exists and then runs Maven's default lifecycle up to package 
+rm -f /var/lib/tomcat/webapps/*.war  //remove anything that ends in .war in your project from Tomcat
+mv target/*.war /var/lib/tomcat/webapps //a relative path to the created target folder and move the war file to Tomcat's webapps folder
+
+Tomcat runs applications from its webapps folder.
+Thus, when Tomcat gets a war file in its webapps folder, it will start running your application for you
+
+When we build our projects, they tend to come with something like ProjectName-0.0.1-SNAPSHOT.war. Tomcat uses this to set the context path of the URI.
+This is an unsightly URI, so in the pom.xml we can set a tag to name the context path
+Such as
+	<build>
+		<finalName> HelloJenkins </finalName>
+	</build>
+This will make the war file HelloJenkins.war when Maven packages it.
