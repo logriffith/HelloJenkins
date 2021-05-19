@@ -1,0 +1,30 @@
+Uninstalling Tomcat 8.5:
+
+Inside the EC2, enter
+sudo yum remove tomcat-versionNumber
+
+Follow the install commands at https://techviewleo.com/install-tomcat-on-amazon-linux/
+
+However, for the service file enter 
+sudo tee /etc/systemd/system/tomcat.service<<EOF
+[Unit]
+Description=Tomcat Server
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=tomcat
+Group=jenkins-tomcat
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0
+Environment='JAVA_OPTS=-Djava.awt.headless=true'
+Environment=CATALINA_HOME=/usr/share/tomcat/apache-tomcat-9.0.39
+Environment=CATALINA_BASE=/usr/share/tomcat/apache-tomcat-9.0.39
+Environment=CATALINA_PID=/usr/share/tomcat/apache-tomcat-9.0.39/temp/tomcat.pid
+Environment='CATALINA_OPTS=-Xms16M -Xmx16M'
+ExecStart=/usr/share/tomcat/apache-tomcat-9.0.39/bin/catalina.sh start
+ExecStop=/usr/share/tomcat/apache-tomcat-9.0.39/bin/catalina.sh stop
+
+[Install]
+WantedBy=multi-user.target
+EOF
