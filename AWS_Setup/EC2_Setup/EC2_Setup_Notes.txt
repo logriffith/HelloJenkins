@@ -107,7 +107,10 @@ Setup Permissions Group So Jenkins and Tomcat can Talk to Each Other:
 5. sudo service tomcat restart
 6. sudo service jenkins restart
 
-Now, in your web browser enter either the EC2's Public IPv4 address or Public IPv4 DNS, followed by :8080. Recall that 8080 is Jenkins default port and Tomcat is now on port 8085.
+Now, in your web browser enter either the EC2's Public IPv4 address or Public IPv4 DNS, followed by :8080. Recall that 8080 is Jenkins' default port and Tomcat is now on port 8085.
+	ex: 13.58.63.20:8080
+	ex: ec2-13-58-63-20.us-east-2.compute.amazonaws.com:8080
+
 You be given a screen that says to unlock Jenkins
 
 Now, Enter
@@ -124,10 +127,6 @@ To Stop Jenkins on EC2:
 sudo service jenkins stop
 
 Note that your Jenkins username is admin and your password is what is outputted when you execute sudo cat /var/lib/jenkins/secrets/initialAdminPassword, unless you changed it.
-To access your Jenkins pipeline from the browser, just enter PublicEC2LocationOnTheInternet:portNumber in your browser.
-	Either Public IPv4 address or Public IPv4 DNS will work for the EC2 location
-	ex: 13.58.63.20:8080
-	ex: ec2-13-58-63-20.us-east-2.compute.amazonaws.com:8080
 
 In your application, if you are calling to get environment variables such as the password to your RDS, you will need to set your environment variables in your EC2.
 If you are putting your application inside a Docker container on an EC2, you will need to set your environment variables inside the container.
